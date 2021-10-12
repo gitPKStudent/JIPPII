@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/JIPP_REPO.dir/main.cpp.o -o JIPP_REPO 
