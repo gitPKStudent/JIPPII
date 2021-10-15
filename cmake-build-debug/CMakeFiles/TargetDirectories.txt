@@ -1,3 +1,0 @@
-C:/Users/mik15/CLionProjects/JIPP2/cmake-build-debug/CMakeFiles/JIPP2.dir
-C:/Users/mik15/CLionProjects/JIPP2/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/mik15/CLionProjects/JIPP2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

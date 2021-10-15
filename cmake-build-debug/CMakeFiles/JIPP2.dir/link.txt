@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\JIPP2.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\JIPP2.dir/objects.a @CMakeFiles\JIPP2.dir\objects1.rsp
-C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\JIPP2.dir/objects.a -Wl,--no-whole-archive -o JIPP2.exe -Wl,--out-implib,libJIPP2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\JIPP2.dir\linklibs.rsp
