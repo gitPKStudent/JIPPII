@@ -145,6 +145,7 @@ double average(double* a, double* b)
 }
 
 // 3.2 Do napisania program gdzie wczytamy i wypiszemy na ekran elementy tablicy większe od 0 (należy użyć wskaźników).
+
 void loadPositives()
 {
     int size;
@@ -185,7 +186,6 @@ void bubleSort(double* array)
 }
 
 // 3.4 Proszę stworzyć funkcję, której argumentami będą liczba całkowita x oraz intowy wskaźnik w. Powinna ona wpisywać wartość x do zmiennej wskazywanej przez wskaźnik.
-void swap(int x, int* w);
 
 void swap(int x, int *w)
 {
@@ -216,7 +216,9 @@ void divide(double a, double b)
     }
 
 }
+
 // 4.2 Do napisania jest funkcja, która wczyta od użytkownika linijkę zawierającą ciąg znaków. Program powinien następnie spróbować przekonwertować wprowadzony tekst na liczbę typu int. W trakcie konwersji program może zwrócić dwa wyjątki: Wprowadzony ciąg zawiera nieprawidłowe znaki oraz Wprowadzona liczba jest za duża. Na sam koniec program powinien wypisać skonwertowaną liczbę na ekran.
+
 int compare(string a, string b)
 {
     if(a[0] == '-' && b[0] != '-')
