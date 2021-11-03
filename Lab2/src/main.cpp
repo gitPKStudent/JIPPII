@@ -10,6 +10,20 @@ using namespace std;
 
 int main()
 {
+    int array2 [10] = {4, 5, 3, 3, 3, 4, 6, 2, 6, 5};
+    int p = 0;
+    for(int i = 0;i < 20; i++)
+    {
+
+        array2[p] = (array2[p] + array2[(p+3) % 10]) % 4;
+        cout<<"Wynik: "<< array2[p]<<endl;
+        for(int k =0;k < 10; k++)
+            cout<<array2[k]<<" ";
+        cout<<endl;
+        p = (p + 1) % 10;
+    }
+
+    while(1);
     cout<<"***********************************"<<endl;
     //1
     cout<<area(2)<<endl;

@@ -17,7 +17,7 @@ void multiplyMatrixS(int** a, int** b, int rowA, int colA, int rowB);
 void printMatrixD(double** array, bool* excludedRows, bool* excludedCols, int  actualRow, int actualCol, int znak);
 
 //LIBRARY METHOD'S
-double** mlib::addMatrix(double** a, double** b, int row, int col)
+double** addMatrix(double** a, double** b, int row, int col)
 {
     double** result = createMatrix(row, col);
 
@@ -28,7 +28,7 @@ double** mlib::addMatrix(double** a, double** b, int row, int col)
     return result;
 }
 
-double** mlib::subtractMatrix(double** a, double** b, int row, int col)
+double** subtractMatrix(double** a, double** b, int row, int col)
 {
     double** result = createMatrix(row, col);
 
@@ -39,7 +39,7 @@ double** mlib::subtractMatrix(double** a, double** b, int row, int col)
     return result;
 }
 
-double** mlib::multiplyMatrix(double** a, double** b, int rowA, int colA, int colB)
+double** multiplyMatrix(double** a, double** b, int rowA, int colA, int colB)
 {
     double** result = createMatrix(rowA, colB);
 
@@ -52,16 +52,16 @@ double** mlib::multiplyMatrix(double** a, double** b, int rowA, int colA, int co
 
 void multiplyMatrixS(double **a, double **b, int rowA, int colA, int colB)
 {
-    double** result = mlib::multiplyMatrix(a, b, rowA, colA, colB);
-    mlib::matrixcpy(a, result, rowA, colB);
-    mlib::deleteMatrix(result);
+    double** result = multiplyMatrix(a, b, rowA, colA, colB);
+    matrixcpy(a, result, rowA, colB);
+    deleteMatrix(result);
 }
 
 
-double** mlib::multiplyByScalar(double** a, int row, int col, double scalar)
+double** multiplyByScalar(double** a, int row, int col, double scalar)
 {
     double** result = createMatrix(row, col);
-    mlib::matrixcpy(result, a, row, col);
+    matrixcpy(result, a, row, col);
 
     for(int i = 0; i < row; i++)
     {
@@ -72,7 +72,7 @@ double** mlib::multiplyByScalar(double** a, int row, int col, double scalar)
     return result;
 }
 
-void mlib::printMatrix(double** a, int row, int col)
+void printMatrix(double** a, int row, int col)
 {
     std::cout<<"-----------------\n";
     for(int i = 0; i < row; i++)
@@ -86,7 +86,7 @@ void mlib::printMatrix(double** a, int row, int col)
     }
 }
 
-double** mlib::transpozeMatrix(double** a, int row, int col)
+double** transpozeMatrix(double** a, int row, int col)
 {
     double** result = createMatrix(col, row);
 
@@ -99,10 +99,10 @@ double** mlib::transpozeMatrix(double** a, int row, int col)
     return result;
 }
 
-double** mlib::powerMatrix(double** a, int row, int col, unsigned int power)
+double** powerMatrix(double** a, int row, int col, unsigned int power)
 {
     double** tmp = createMatrix(row, col);
-    mlib::matrixcpy(tmp, a, row, col);
+    matrixcpy(tmp, a, row, col);
     double** result = idnetityMatrix(row);
 
     while(power > 0)
@@ -118,7 +118,7 @@ double** mlib::powerMatrix(double** a, int row, int col, unsigned int power)
     return result;
 }
 
-void mlib::printMatrix(double** a)
+void printMatrix(double** a)
 {
     std::cout<<"-----------------\n";
     int row = _msize(a) / sizeof (double*);
@@ -134,7 +134,7 @@ void mlib::printMatrix(double** a)
     }
 }
 
-bool mlib::matrixIsDiagonal(double**a, int row, int col)
+bool matrixIsDiagonal(double**a, int row, int col)
 {
     for(int i = 0; i < row; i++)
     {
@@ -145,14 +145,14 @@ bool mlib::matrixIsDiagonal(double**a, int row, int col)
     return true;
 }
 
-void mlib::swap(double &a, double &b)
+void swap(double &a, double &b)
 {
     double c = a;
     a = b;
     b = c;
 }
 
-void mlib::sortRow(double* matrix, int col)
+void sortRow(double* matrix, int col)
 {
     for(int i = 0; i < col; i++)
         for(int k = col - 1; k > i; k--)
@@ -160,13 +160,13 @@ void mlib::sortRow(double* matrix, int col)
                 swap(matrix[k - 1], matrix[k]);
 }
 
-void mlib::sortRowsInMatrix(double** a, int row, int col)
+void sortRowsInMatrix(double** a, int row, int col)
 {
     for(int i = 0; i < row; i++)
         sortRow(a[i], col);
 }
 
-double mlib::determinantMatrix(double** a, int row, int col)
+double determinantMatrix(double** a, int row, int col)
 {
     bool* excludedRows = new bool [row];
     bool* excludedCols = new bool [row];
@@ -182,7 +182,7 @@ double mlib::determinantMatrix(double** a, int row, int col)
     return result;
 }
 
-bool mlib::matrixcmp(double** a, double** b, int row, int col)
+bool matrixcmp(double** a, double** b, int row, int col)
 {
     for(int i = 0; i < row; i++)
         for(int k = 0; k < col; k++)
@@ -191,7 +191,7 @@ bool mlib::matrixcmp(double** a, double** b, int row, int col)
     return true;
 }
 
-void mlib::deleteMatrix(double** a)
+void deleteMatrix(double** a)
 {
     int rows = _msize(a) / sizeof(double *);
     for (int i = 0; i < rows; i++)
@@ -199,7 +199,7 @@ void mlib::deleteMatrix(double** a)
     delete[] a;
 }
 
-void mlib::fillMatrix(int row, int col, double** a, ...)
+void fillMatrix(int row, int col, double** a, ...)
 {
     va_list listOfArg;
     va_start(listOfArg, row * col);
@@ -211,7 +211,7 @@ void mlib::fillMatrix(int row, int col, double** a, ...)
     va_end(listOfArg);
 }
 
-double** mlib::createMatrix(int row, int col)
+double** createMatrix(int row, int col)
 {
     double** result = new double* [row];
     for(int i = 0;i < row; i++)
@@ -270,7 +270,7 @@ double multiplyRowCol(double** a, double** b, int row, int col, int n)
 }
 
 
-void mlib::matrixcpy(double** a, double** b, int row , int col)
+void matrixcpy(double** a, double** b, int row , int col)
 {
     for(int i = 0; i < row; i++)
         for (int k = 0; k < col; k++)
@@ -278,9 +278,9 @@ void mlib::matrixcpy(double** a, double** b, int row , int col)
 }
 
 //SAME SET OF FUNCIONS WORKING WITH INTEGER'S
-int** mlib::addMatrix(int** a, int** b, int row, int col)
+int** addMatrix(int** a, int** b, int row, int col)
 {
-    int** result = mlib::createMatrixI(row, col);
+    int** result = createMatrixI(row, col);
 
     for(int i = 0; i < row; i++)
         for (int k = 0; k < col; k++)
@@ -289,9 +289,9 @@ int** mlib::addMatrix(int** a, int** b, int row, int col)
     return result;
 }
 
-int** mlib::subtractMatrix(int** a, int** b, int row, int col)
+int** subtractMatrix(int** a, int** b, int row, int col)
 {
-    int** result = mlib::createMatrixI(row, col);
+    int** result = createMatrixI(row, col);
 
     for(int i = 0; i < row; i++)
         for (int k = 0; k < col; k++)
@@ -300,9 +300,9 @@ int** mlib::subtractMatrix(int** a, int** b, int row, int col)
     return result;
 }
 
-int** mlib::multiplyMatrix(int** a, int** b, int rowA, int colA, int colB)
+int** multiplyMatrix(int** a, int** b, int rowA, int colA, int colB)
 {
-    int** result = mlib::createMatrixI(rowA, colB);
+    int** result = createMatrixI(rowA, colB);
 
     for(int i = 0; i < rowA; i++)
         for (int k = 0; k < colB; k++)
@@ -311,10 +311,10 @@ int** mlib::multiplyMatrix(int** a, int** b, int rowA, int colA, int colB)
     return result;
 }
 
-int** mlib::multiplyByScalar(int** a, int row, int col, double scalar)
+int** multiplyByScalar(int** a, int row, int col, double scalar)
 {
-    int** result = mlib::createMatrixI(row, col);
-    mlib::matrixcpy(result, a, row, col);
+    int** result = createMatrixI(row, col);
+    matrixcpy(result, a, row, col);
 
     for(int i = 0; i < row; i++)
     {
@@ -325,7 +325,7 @@ int** mlib::multiplyByScalar(int** a, int row, int col, double scalar)
     return result;
 }
 
-void mlib::printMatrix(int** a, int row, int col)
+void printMatrix(int** a, int row, int col)
 {
     for(int i = 0; i < row; i++)
     {
@@ -338,9 +338,9 @@ void mlib::printMatrix(int** a, int row, int col)
     }
 }
 
-int** mlib::transpozeMatrix(int** a, int row, int col)
+int** transpozeMatrix(int** a, int row, int col)
 {
-    int** result = mlib::createMatrixI(row, col);
+    int** result = createMatrixI(row, col);
 
     for(int i = 0; i < row; i++)
     {
@@ -351,10 +351,10 @@ int** mlib::transpozeMatrix(int** a, int row, int col)
     return result;
 }
 
-int** mlib::powerMatrix(int** a, int row, int col, unsigned int power)
+int** powerMatrix(int** a, int row, int col, unsigned int power)
 {
-    int** tmp = mlib::createMatrixI(row, col);
-    mlib::matrixcpy(tmp, a, row, col);
+    int** tmp = createMatrixI(row, col);
+    matrixcpy(tmp, a, row, col);
     int** result = idnetityMatrixI(row);
 
     while(power > 0)
@@ -370,7 +370,7 @@ int** mlib::powerMatrix(int** a, int row, int col, unsigned int power)
     return result;
 }
 
-void mlib::printMatrix(int** a)
+void printMatrix(int** a)
 {
     int row = _msize(a) / sizeof (int*);
     int col = _msize(*a) / sizeof (int);
@@ -385,7 +385,7 @@ void mlib::printMatrix(int** a)
     }
 }
 
-bool mlib::matrixIsDiagonal(int**a, int row, int col)
+bool matrixIsDiagonal(int**a, int row, int col)
 {
     for(int i = 0; i < row; i++)
     {
@@ -396,28 +396,28 @@ bool mlib::matrixIsDiagonal(int**a, int row, int col)
     return true;
 }
 
-void mlib::swap(int &a, int &b)
+void swap(int &a, int &b)
 {
     int c = a;
     a = b;
     b = c;
 }
 
-void mlib::sortRow(int* matrix, int col)
+void sortRow(int* matrix, int col)
 {
     for(int i = 0; i < col; i++)
         for(int k = col - 1; k > i; k--)
             if(matrix[k - 1] > matrix[k])
-                mlib::swap(matrix[k - 1], matrix[k]);
+                swap(matrix[k - 1], matrix[k]);
 }
 
-void mlib::sortRowsInMatrix(int** a, int row, int col)
+void sortRowsInMatrix(int** a, int row, int col)
 {
     for(int i = 0; i < row; i++)
-        mlib::sortRow(a[i], col);
+        sortRow(a[i], col);
 }
 
-int mlib::determinantMatrix(int** a, int row, int col)
+int determinantMatrix(int** a, int row, int col)
 {
     bool* excludedRows = new bool [row];
     bool* excludedCols = new bool [row];
@@ -433,7 +433,7 @@ int mlib::determinantMatrix(int** a, int row, int col)
     return result;
 }
 
-bool mlib::matrixcmp(int** a, int** b, int row, int col)
+bool matrixcmp(int** a, int** b, int row, int col)
 {
     for(int i = 0; i < row; i++)
         for(int k = 0; k < col; k++)
@@ -442,7 +442,7 @@ bool mlib::matrixcmp(int** a, int** b, int row, int col)
     return true;
 }
 
-void mlib::deleteMatrix(int** a)
+void deleteMatrix(int** a)
 {
     int rows = _msize(a) / sizeof (int *);
     for(int i = 0; i < rows; i++)
@@ -450,7 +450,7 @@ void mlib::deleteMatrix(int** a)
     delete [] a;
 }
 
-void mlib::fillMatrix(int row, int col, int** a, ...)
+void fillMatrix(int row, int col, int** a, ...)
 {
     va_list listOfArg;
     va_start(listOfArg, row * col);
@@ -462,7 +462,7 @@ void mlib::fillMatrix(int row, int col, int** a, ...)
     va_end(listOfArg);
 }
 
-int** mlib::createMatrixI(int row, int col)
+int** createMatrixI(int row, int col)
 {
     int** result = new int* [row];
     for(int i = 0;i < row; i++)
@@ -470,7 +470,7 @@ int** mlib::createMatrixI(int row, int col)
     return result;
 }
 
-void mlib::matrixcpy(int** a, int** b, int row , int col)
+void matrixcpy(int** a, int** b, int row , int col)
 {
     for(int i = 0; i < row; i++)
         for (int k = 0; k < col; k++)
@@ -530,7 +530,7 @@ int multiplyRowCol(int** a, int** b, int row, int col, int n)
 
 int** idnetityMatrixI(int n)
 {
-    int** result = mlib::createMatrixI(n, n);
+    int** result = createMatrixI(n, n);
 
     for(int i = 0;i < n; i++)
         for(int k = 0;k < n; k++)
@@ -544,15 +544,15 @@ int** idnetityMatrixI(int n)
 
 void multiplyMatrixS(int **a, int **b, int rowA, int colA, int colB)
 {
-    int** result = mlib::multiplyMatrix(a, b, rowA, colA, colB);
-    mlib::matrixcpy(a, result, rowA, colB);
-    mlib::deleteMatrix(result);
+    int** result = multiplyMatrix(a, b, rowA, colA, colB);
+    matrixcpy(a, result, rowA, colB);
+    deleteMatrix(result);
 }
 
 
 double** idnetityMatrix(int n)
 {
-    double** result = mlib::createMatrix(n, n);
+    double** result = createMatrix(n, n);
 
     for(int i = 0;i < n; i++)
         for(int k = 0;k < n; k++)

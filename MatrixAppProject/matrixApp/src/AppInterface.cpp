@@ -6,12 +6,12 @@
 
 bool isAB(char arg0, char arg1);
 
-bool AppInterface::addMatrix(int row, int col, char flag0, char flag1)
+bool AppInterface::addMatrixInterf(int row, int col, char flag0, char flag1)
 {
     if(flag0 == 'N')
     {
-        double** matrixA = mlib::createMatrix(row, col);
-        double** matrixB = mlib::createMatrix(row, col);
+        double** matrixA = createMatrix(row, col);
+        double** matrixB = createMatrix(row, col);
 
         if(!fillMatrix(matrixA, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
@@ -19,12 +19,12 @@ bool AppInterface::addMatrix(int row, int col, char flag0, char flag1)
         if(!fillMatrix(matrixB, row, col, "Wprowadz dane drugiej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        double** result =  mlib::addMatrix(matrixA, matrixB , row, col);
-        mlib::printMatrix(result);
+        double** result =  addMatrix(matrixA, matrixB , row, col);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
-        mlib::deleteMatrix(matrixA);
-        mlib::deleteMatrix(matrixB);
+        deleteMatrix(result);
+        deleteMatrix(matrixA);
+        deleteMatrix(matrixB);
         return true;
     }
 
@@ -35,19 +35,19 @@ bool AppInterface::addMatrix(int row, int col, char flag0, char flag1)
 
         if(matrixA == nullptr || matrixB == nullptr)
             return  false;
-        double** result =  mlib::addMatrix(matrixA, matrixB, rowA, colA);
-        mlib::printMatrix(result);
-        mlib::deleteMatrix(result);
+        double** result =  addMatrix(matrixA, matrixB, rowA, colA);
+        printMatrix(result);
+        deleteMatrix(result);
         return true;
     }
 }
 
-bool AppInterface::subtractMatrix(int row, int col, char flag0, char flag1)
+bool AppInterface::subtractMatrixInterf(int row, int col, char flag0, char flag1)
 {
     if(flag0 == 'N')
     {
-        double** matrixA = mlib::createMatrix(row, col);
-        double** matrixB = mlib::createMatrix(row, col);
+        double** matrixA = createMatrix(row, col);
+        double** matrixB = createMatrix(row, col);
 
         if(!fillMatrix(matrixA, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
@@ -55,12 +55,12 @@ bool AppInterface::subtractMatrix(int row, int col, char flag0, char flag1)
         if(!fillMatrix(matrixB, row, col, "Wprowadz dane drugiej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        double** result =  mlib::subtractMatrix(matrixA, matrixB , row, col);
-        mlib::printMatrix(result);
+        double** result =  subtractMatrix(matrixA, matrixB , row, col);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
-        mlib::deleteMatrix(matrixA);
-        mlib::deleteMatrix(matrixB);
+        deleteMatrix(result);
+        deleteMatrix(matrixA);
+        deleteMatrix(matrixB);
         return true;
     }
     else
@@ -72,24 +72,24 @@ bool AppInterface::subtractMatrix(int row, int col, char flag0, char flag1)
             return  false;
         double** result;
         if(flag0 == 'A')
-            result =  mlib::subtractMatrix(matrixA, matrixB, rowA, colA);
+            result =  subtractMatrix(matrixA, matrixB, rowA, colA);
         else
-            result =  mlib::subtractMatrix(matrixB, matrixA, rowA, colA);
-        mlib::printMatrix(result);
-        mlib::deleteMatrix(result);
+            result =  subtractMatrix(matrixB, matrixA, rowA, colA);
+        printMatrix(result);
+        deleteMatrix(result);
         return true;
     }
 }
 
-bool AppInterface::multiplyMatrix(int rowA, int colA, int rowB, int colB, char flag0, char flag1)
+bool AppInterface::multiplyMatrixInterf(int rowA, int colA, int rowB, int colB, char flag0, char flag1)
 {
     if(flag0 == 'N')
     {
         if(colB != rowA)
             return false;
 
-        double** matrixA =  mlib::createMatrix(rowA, colA);
-        double** matrixB =  mlib::createMatrix(rowB, colB);
+        double** matrixA =  createMatrix(rowA, colA);
+        double** matrixB =  createMatrix(rowB, colB);
 
         if(!fillMatrix(matrixA, rowA, colA, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
@@ -97,12 +97,12 @@ bool AppInterface::multiplyMatrix(int rowA, int colA, int rowB, int colB, char f
         if(!fillMatrix(matrixB, rowB, colB, "Wprowadz dane drugiej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        double** result =  mlib::multiplyMatrix(matrixA, matrixB , rowA, colA, colB);
-        mlib::printMatrix(result);
+        double** result =  multiplyMatrix(matrixA, matrixB , rowA, colA, colB);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
-        mlib::deleteMatrix(matrixA);
-        mlib::deleteMatrix(matrixB);
+        deleteMatrix(result);
+        deleteMatrix(matrixA);
+        deleteMatrix(matrixB);
         return true;
     }
     else
@@ -117,10 +117,10 @@ bool AppInterface::multiplyMatrix(int rowA, int colA, int rowB, int colB, char f
         {
             if(AppInterface::colA == AppInterface::rowB)
             {
-                double** result = mlib::createMatrix(rowA, colB);
-                result = mlib::multiplyMatrix(matrixA, matrixB, AppInterface::rowA, AppInterface::colA, AppInterface::colB);
-                mlib::printMatrix(result);
-                mlib::deleteMatrix(result);
+                double** result = createMatrix(rowA, colB);
+                result = multiplyMatrix(matrixA, matrixB, AppInterface::rowA, AppInterface::colA, AppInterface::colB);
+                printMatrix(result);
+                deleteMatrix(result);
                 return true;
             }
             else
@@ -130,10 +130,10 @@ bool AppInterface::multiplyMatrix(int rowA, int colA, int rowB, int colB, char f
         {
             if(AppInterface::colB == AppInterface::rowA)
             {
-                double** result = mlib::createMatrix(AppInterface::rowA, AppInterface::colB);
-                result = mlib::multiplyMatrix(matrixB, matrixA, AppInterface::rowB, AppInterface::colB, AppInterface::colA);
-                mlib::printMatrix(result);
-                mlib::deleteMatrix(result);
+                double** result = createMatrix(AppInterface::rowA, AppInterface::colB);
+                result = multiplyMatrix(matrixB, matrixA, AppInterface::rowB, AppInterface::colB, AppInterface::colA);
+                printMatrix(result);
+                deleteMatrix(result);
                 return true;
             }
             else
@@ -143,56 +143,56 @@ bool AppInterface::multiplyMatrix(int rowA, int colA, int rowB, int colB, char f
     }
 }
 
-bool AppInterface::multiplyByScalar(int row, int col, double scalar, char flag)
+bool AppInterface::multiplyByScalarInterf(int row, int col, double scalar, char flag)
 {
     if(flag == 'N')
     {
-        double** matrix = mlib::createMatrix(row, col);
+        double** matrix = createMatrix(row, col);
 
         if(!fillMatrix(matrix, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        double** result = mlib::multiplyByScalar(matrix, row, col, scalar);
-        mlib::printMatrix(result);
+        double** result = multiplyByScalar(matrix, row, col, scalar);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
-        mlib::deleteMatrix(matrix);
+        deleteMatrix(result);
+        deleteMatrix(matrix);
         return true;
     }
     else if(flag == 'A')
     {
         if(matrixA == nullptr)
             return false;
-        double** result = mlib::multiplyByScalar(matrixA, rowA, colA, scalar);
-        mlib::printMatrix(result);
-        mlib::deleteMatrix(result);
+        double** result = multiplyByScalar(matrixA, rowA, colA, scalar);
+        printMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     else if(flag == 'B')
     {
         if(matrixB == nullptr)
             return false;
-        double** result = mlib::multiplyByScalar(matrixB, rowB, colB, scalar);
-        mlib::printMatrix(result);
-        mlib::deleteMatrix(result);
+        double** result = multiplyByScalar(matrixB, rowB, colB, scalar);
+        printMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     return false;
 }
 
-bool AppInterface::transpozeMatrix(int row, int col, char flag)
+bool AppInterface::transpozeMatrixInterf(int row, int col, char flag)
 {
     if(flag == 'N')
     {
-        double** matrix = mlib::createMatrix(col, row);
+        double** matrix = createMatrix(col, row);
         if(!fillMatrix(matrix, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        double** result = mlib::transpozeMatrix(matrix, row, col);
-        mlib::printMatrix(result);
+        double** result = transpozeMatrix(matrix, row, col);
+        printMatrix(result);
 
-        mlib::deleteMatrix(matrix);
-        mlib::deleteMatrix(result);
+        deleteMatrix(matrix);
+        deleteMatrix(result);
         return true;
     }
     else if(flag == 'A')
@@ -200,11 +200,11 @@ bool AppInterface::transpozeMatrix(int row, int col, char flag)
         if(matrixA == nullptr)
             return false;
 
-        double** result = mlib::transpozeMatrix(matrixA, rowA, colA);
-        mlib::swap(rowA, colA);
-        mlib::printMatrix(result);
+        double** result = transpozeMatrix(matrixA, rowA, colA);
+        swap(rowA, colA);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     else if(flag == 'B')
@@ -212,29 +212,29 @@ bool AppInterface::transpozeMatrix(int row, int col, char flag)
         if(matrixB == nullptr)
             return false;
 
-        double** result = mlib::transpozeMatrix(matrixB, rowB, colB);
-        mlib::swap(rowB, colB);
-        mlib::printMatrix(result);
+        double** result = transpozeMatrix(matrixB, rowB, colB);
+        swap(rowB, colB);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     else
         return false;
 }
 
-bool AppInterface::powerMatrix(int row, int col, unsigned int power, char flag)
+bool AppInterface::powerMatrixInterf(int row, int col, unsigned int power, char flag)
 {
     if(flag == 'N')
     {
-        double** matrix = mlib::createMatrix(row, col);
+        double** matrix = createMatrix(row, col);
         if(!fillMatrix(matrix, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
-        double** result = mlib::powerMatrix(matrix,row, col, power);
-        mlib::printMatrix(result);
+        double** result = powerMatrix(matrix,row, col, power);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
-        mlib::deleteMatrix(matrix);
+        deleteMatrix(result);
+        deleteMatrix(matrix);
         return true;
     }
     else if(flag == 'A')
@@ -242,10 +242,10 @@ bool AppInterface::powerMatrix(int row, int col, unsigned int power, char flag)
         if(matrixA == nullptr)
             return false;
 
-        double** result = mlib::powerMatrix(matrixA, rowA, colA, power);
-        mlib::printMatrix(result);
+        double** result = powerMatrix(matrixA, rowA, colA, power);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     else if(flag == 'B')
@@ -253,162 +253,162 @@ bool AppInterface::powerMatrix(int row, int col, unsigned int power, char flag)
         if(matrixB == nullptr)
             return false;
 
-        double** result = mlib::powerMatrix(matrixB, rowB, colB, power);
-        mlib::printMatrix(result);
+        double** result = powerMatrix(matrixB, rowB, colB, power);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
 
     return false;
 }
 
-bool AppInterface::matrixIsDiagonal(int row, int col, char flag)
+bool AppInterface::matrixIsDiagonalInterf(int row, int col, char flag)
 {
     if(flag == 'N')
     {
-        double** matrix = mlib::createMatrix(row, col);
+        double** matrix = createMatrix(row, col);
         if(!fillMatrix(matrix, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        bool result = mlib::matrixIsDiagonal(matrix, row, col);
+        bool result = matrixIsDiagonal(matrix, row, col);
         std::cout<<result<<std::endl;
 
-        mlib::deleteMatrix(matrix);
+        deleteMatrix(matrix);
         return true;
     }
     else if(flag == 'A')
     {
         if(matrixA == nullptr)
             return false;
-        std::cout<<mlib::matrixIsDiagonal(matrixA, rowA, colA)<<std::endl;
+        std::cout<<matrixIsDiagonal(matrixA, rowA, colA)<<std::endl;
         return true;
     }
     else if(flag == 'B')
     {
         if(matrixB == nullptr)
             return false;
-        std::cout<<mlib::matrixIsDiagonal(matrixB, rowB, colB)<<std::endl;
+        std::cout<<matrixIsDiagonal(matrixB, rowB, colB)<<std::endl;
         return true;
     }
 
     return false;
 }
 
-bool AppInterface::sortRow(int row, int col, int rowToSort, char flag)
+bool AppInterface::sortRowInterf(int row, int col, int rowToSort, char flag)
 {
     if(flag == 'N')
     {
-        double** matrix = mlib::createMatrix(row, col);
+        double** matrix = createMatrix(row, col);
         if(!fillMatrix(matrix, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
         if(rowToSort >= row)
             return false;
 
-        mlib::sortRow(*(matrix + rowToSort), col);
-        mlib::printMatrix(matrix);
+        sortRow(*(matrix + rowToSort), col);
+        printMatrix(matrix);
 
-        mlib::deleteMatrix(matrix);
+        deleteMatrix(matrix);
         return true;
     }
     else if(flag == 'A')
     {
         if(matrixA == nullptr)
             return false;
-        double** result = mlib::createMatrix(rowA, colA);
-        mlib::matrixcpy(result, matrixA, rowA, colA);
+        double** result = createMatrix(rowA, colA);
+        matrixcpy(result, matrixA, rowA, colA);
 
-        mlib::sortRow(*(result + rowToSort), colA);
-        mlib::printMatrix(result);
+        sortRow(*(result + rowToSort), colA);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     else if(flag == 'B')
     {
         if(matrixB == nullptr)
             return false;
-        double** result = mlib::createMatrix(rowB, colB);
-        mlib::matrixcpy(result, matrixB, rowB, colB);
+        double** result = createMatrix(rowB, colB);
+        matrixcpy(result, matrixB, rowB, colB);
 
-        mlib::sortRow(*(result + rowToSort), colB);
-        mlib::printMatrix(result);
+        sortRow(*(result + rowToSort), colB);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     return false;
 }
 
-bool AppInterface::sortRowsInMatrix(int row, int col, char flag)
+bool AppInterface::sortRowsInMatrixInterf(int row, int col, char flag)
 {
     if(flag == 'N')
     {
-        double** matrix = mlib::createMatrix(row, col);
+        double** matrix = createMatrix(row, col);
         if(!fillMatrix(matrix, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        mlib::sortRowsInMatrix(matrix, row, col);
-        mlib::printMatrix(matrix);
+        sortRowsInMatrix(matrix, row, col);
+        printMatrix(matrix);
 
-        mlib::deleteMatrix(matrix);
+        deleteMatrix(matrix);
         return true;
     }
     else if(flag == 'A')
     {
         if(matrixA == nullptr)
             return false;
-        double** result = mlib::createMatrix(rowA, colA);
-        mlib::matrixcpy(result, matrixA, rowA, colA);
+        double** result = createMatrix(rowA, colA);
+        matrixcpy(result, matrixA, rowA, colA);
 
-        mlib::sortRowsInMatrix(result, rowA, colA);
-        mlib::printMatrix(result);
+        sortRowsInMatrix(result, rowA, colA);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     else if(flag == 'B')
     {
         if(matrixA == nullptr)
             return false;
-        double** result = mlib::createMatrix(rowB, colB);
-        mlib::matrixcpy(result, matrixB, rowB, colB);
+        double** result = createMatrix(rowB, colB);
+        matrixcpy(result, matrixB, rowB, colB);
 
-        mlib::sortRowsInMatrix(result, rowB, colB);
-        mlib::printMatrix(result);
+        sortRowsInMatrix(result, rowB, colB);
+        printMatrix(result);
 
-        mlib::deleteMatrix(result);
+        deleteMatrix(result);
         return true;
     }
     return false;
 }
 
-bool AppInterface::determinantMatrix(int row, int col, char flag)
+bool AppInterface::determinantMatrixInterf(int row, int col, char flag)
 {
     if(flag == 'N')
     {
-        double** matrix = mlib::createMatrix(row, col);
+        double** matrix = createMatrix(row, col);
         if(!fillMatrix(matrix, row, col, "Wprowadz dane pierwszej macierzy (iczby oddzielone spacja):"))
             return false;
 
-        double result = mlib::determinantMatrix(matrix, row, col);
+        double result = determinantMatrix(matrix, row, col);
         std::cout<<result<<std::endl;
 
-        mlib::deleteMatrix(matrix);
+        deleteMatrix(matrix);
         return true;
     }
     else if(flag == 'A')
     {
         if(matrixA == nullptr)
             return false;
-        std::cout<<mlib::determinantMatrix(matrixA, rowA, colA)<<std::endl;
+        std::cout<<determinantMatrix(matrixA, rowA, colA)<<std::endl;
         return true;
     }
     else if(flag == 'B')
     {
         if(matrixB == nullptr)
             return false;
-        std::cout<<mlib::determinantMatrix(matrixB, rowB, colB)<<std::endl;
+        std::cout<<determinantMatrix(matrixB, rowB, colB)<<std::endl;
         return true;
     }
 
@@ -423,8 +423,8 @@ bool AppInterface::fill(int row, int col, char flag)
     if (flag == 'A')
     {
         if(matrixA != nullptr)
-            mlib::deleteMatrix(matrixA);
-        matrixA = mlib::createMatrix(row, col);
+            deleteMatrix(matrixA);
+        matrixA = createMatrix(row, col);
         rowA = row;
         colA = col;
         return fillMatrix(matrixA, row, col, "Wprowadz dane do macierzy (liczby oddzielone spacja):");
@@ -432,8 +432,8 @@ bool AppInterface::fill(int row, int col, char flag)
     else if (flag == 'B')
     {
         if(matrixB != nullptr)
-            mlib::deleteMatrix(matrixB);
-        matrixB = mlib::createMatrix(row, col);
+            deleteMatrix(matrixB);
+        matrixB = createMatrix(row, col);
         rowB = row;
         colB = col;
         return fillMatrix(matrixB, row, col, "Wprowadz dane do macierzy (liczby oddzielone spacja):");
@@ -618,7 +618,7 @@ bool isAB(char arg0, char arg1)
 AppInterface::~AppInterface()
 {
     if(matrixA != nullptr)
-        mlib::deleteMatrix(matrixA);
+        deleteMatrix(matrixA);
     if(matrixB != nullptr)
-        mlib::deleteMatrix(matrixB);
+        deleteMatrix(matrixB);
 }

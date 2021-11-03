@@ -1,8 +1,6 @@
 #ifndef MATRIXCALCPROJECT_MATRIX_H
 #define MATRIXCALCPROJECT_MATRIX_H
 
-namespace mlib
-{
                                   //DOUBLE'S
     //******************** MATRIX OPERATION FUNCTIONS ********************
 
@@ -346,5 +344,5 @@ namespace mlib
      * @param col - number of columns of matrix
      * */
     void matrixcpy(int** a, int** b, int row , int col);
-}
+
 #endif //MATRIXCALCPROJECT_MATRIX_H

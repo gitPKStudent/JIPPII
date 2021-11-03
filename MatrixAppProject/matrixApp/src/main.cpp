@@ -26,14 +26,14 @@ int main(int argc, char* argv[])
             {
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
-                if (!appInterface.addMatrix(row, col))
+                if (!appInterface.addMatrixInterf(row, col))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 char flag1 = getNextChar(&parser);
                 //check if input is correct
-                if (!appInterface.addMatrix(0, 0, flag0, flag1))
+                if (!appInterface.addMatrixInterf(0, 0, flag0, flag1))
                     error();
             }
         } //if(funName == "addMatrix")
@@ -43,14 +43,14 @@ int main(int argc, char* argv[])
             {
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
-                if (!appInterface.subtractMatrix(row, col))
+                if (!appInterface.subtractMatrixInterf(row, col))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 char flag1 = getNextChar(&parser);
                 //check if input is correct
-                if (!appInterface.subtractMatrix(0, 0, flag0, flag1))
+                if (!appInterface.subtractMatrixInterf(0, 0, flag0, flag1))
                     error();
             }
         }//else if(funName == "subtractMatrix")
@@ -61,14 +61,14 @@ int main(int argc, char* argv[])
                 int rowA = getNextNumber(&parser);
                 int colA = getNextNumber(&parser);
                 int colB = getNextNumber(&parser);
-                if (!appInterface.multiplyMatrix(rowA, colA, colA, colB))
+                if (!appInterface.multiplyMatrixInterf(rowA, colA, colA, colB))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 char flag1 = getNextChar(&parser);
                 //check if input is correct
-                if (!appInterface.multiplyMatrix(0, 0, 0, 0, flag0, flag1))
+                if (!appInterface.multiplyMatrixInterf(0, 0, 0, 0, flag0, flag1))
                     error();
             }
         }//    else if(funName == "multiplyMatrix")
@@ -79,14 +79,14 @@ int main(int argc, char* argv[])
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
                 double scalar = getNextNumber(&parser);
-                if (!appInterface.multiplyByScalar(row, col, scalar))
+                if (!appInterface.multiplyByScalarInterf(row, col, scalar))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 int scalar = getNextNumber(&parser);
                 //check if input is correct
-                if (!appInterface.multiplyByScalar(0, 0, scalar, flag0))
+                if (!appInterface.multiplyByScalarInterf(0, 0, scalar, flag0))
                     error();
             }
         }//else if(funName == "multiplyByScalar")
@@ -96,13 +96,13 @@ int main(int argc, char* argv[])
             {
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
-                if (!appInterface.transpozeMatrix(row, col))
+                if (!appInterface.transpozeMatrixInterf(row, col))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 //check if input is correct
-                if (!appInterface.transpozeMatrix(0, 0, flag0))
+                if (!appInterface.transpozeMatrixInterf(0, 0, flag0))
                     error();
             }
         }//else if(funName == "transpozeMatrix")
@@ -113,14 +113,14 @@ int main(int argc, char* argv[])
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
                 int power = getNextNumber(&parser);
-                if (!appInterface.powerMatrix(row, col, power))
+                if (!appInterface.powerMatrixInterf(row, col, power))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 int power = getNextNumber(&parser);
                 //check if input is correct
-                if (!appInterface.powerMatrix(0, 0, power, flag0))
+                if (!appInterface.powerMatrixInterf(0, 0, power, flag0))
                     error();
             }
         }//else if(funName == "powerMatrix")
@@ -130,13 +130,13 @@ int main(int argc, char* argv[])
             {
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
-                if (!appInterface.matrixIsDiagonal(row, col))
+                if (!appInterface.matrixIsDiagonalInterf(row, col))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 //check if input is correct
-                if (!appInterface.matrixIsDiagonal(0, 0, flag0))
+                if (!appInterface.matrixIsDiagonalInterf(0, 0, flag0))
                     error();
             }
         }//else if(funName == "matrixIsDiagonal")
@@ -147,14 +147,14 @@ int main(int argc, char* argv[])
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
                 int rowToSort = getNextNumber(&parser);
-                if (!appInterface.sortRow(row, col, rowToSort))
+                if (!appInterface.sortRowInterf(row, col, rowToSort))
                    error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 int rowToSort = getNextNumber(&parser);
                 //check if input is correct
-                if (!appInterface.sortRow(0, 0, rowToSort, flag0))
+                if (!appInterface.sortRowInterf(0, 0, rowToSort, flag0))
                     error();
             }
         }//else if(funName == "sortRow")
@@ -164,13 +164,13 @@ int main(int argc, char* argv[])
             {
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
-                if (!appInterface.sortRowsInMatrix(row, col))
+                if (!appInterface.sortRowsInMatrixInterf(row, col))
                   error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 //check if input is correct
-                if (!appInterface.sortRowsInMatrix(0, 0, flag0))
+                if (!appInterface.sortRowsInMatrixInterf(0, 0, flag0))
                     error();
             }
         }//else if(funName == "sortRowsInMatrix")
@@ -180,13 +180,13 @@ int main(int argc, char* argv[])
             {
                 int row = getNextNumber(&parser);
                 int col = getNextNumber(&parser);
-                if (!appInterface.determinantMatrix(row, col))
+                if (!appInterface.determinantMatrixInterf(row, col))
                     error();
             } else
             {
                 char flag0 = getNextChar(&parser);
                 //check if input is correct
-                if (!appInterface.determinantMatrix(0, 0, flag0))
+                if (!appInterface.determinantMatrixInterf(0, 0, flag0))
                     error();
             }
         }//else if(funName == "determinantMatrix")
