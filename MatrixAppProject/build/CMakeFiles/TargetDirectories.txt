@@ -1,0 +1,8 @@
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/CMakeFiles/edit_cache.dir
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/CMakeFiles/rebuild_cache.dir
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/matrixLib/CMakeFiles/matrixLib.dir
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/matrixLib/CMakeFiles/edit_cache.dir
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/matrixLib/CMakeFiles/rebuild_cache.dir
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/matrixApp/CMakeFiles/matrixApp.dir
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/matrixApp/CMakeFiles/edit_cache.dir
+C:/Users/mik15/Desktop/studia/SIII/JIPP_II/WORKSHOP/MatrixAppProject/build/matrixApp/CMakeFiles/rebuild_cache.dir

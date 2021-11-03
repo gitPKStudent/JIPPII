@@ -1,0 +1,7 @@
+//CORRECT COMPLEX INPUT TEST
+
+matrixApp fill 4 4 A fill 4 4 B matrixIsDiagonal A determinantMatrix B powerMatrix A 7 addMatrix A B
+- CORRECT
+
+matrixApp fill 2 2 A transpozeMatrix A
+- CORRECT

@@ -1,0 +1,69 @@
+//CORRECT INPUT TEST
+
+matrixApp addMatrix 2 2
+1 2
+3 4
+
+4 3
+2 1
+- CORRECT
+
+matrixApp subtractMatrix 2 2
+1 2
+3 4
+
+1 2
+3 4
+- CORRECT
+
+matrixApp multiplyMatrix 2 2 2
+1 2
+3 4
+
+1 2
+3 4
+- CORRECT
+
+matrixApp multiplyByScalar 2 2 2.5
+1 1
+1 1
+- CORRECT
+
+matrixApp transpozeMatrix 2 2
+1 2
+3 4
+- CORRECT
+
+matrixApp powerMatrix 3 3 5
+1 2 3
+3 2 1
+1 1 4
+- CORRECT
+
+matrixApp matrixIsDiagonal 2 2
+1 0
+2 3
+- CORRECT
+
+matrixApp matrixIsDiagonal 2 2
+1 0
+0 4
+- CORRECT
+
+matrixApp sortRow 2 2 0
+3 1
+0 2
+- CORRECT
+
+matrixApp sortRowsInMatrix 3 3
+3 2 1
+3 2 1
+1 2 3
+- CORRECT
+
+matrixApp determinantMatrix 3 3
+9 1 9
+3 7 1
+2 2 5
+- CORRECT
+

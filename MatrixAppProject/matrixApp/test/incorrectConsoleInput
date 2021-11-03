@@ -1,0 +1,6 @@
+//INCORRECT INPUT TEST
+matrixApp fill  2 2 C
+- CORRECT
+
+matrixApp subtractMatrix A 2 2
+- CORRECT
