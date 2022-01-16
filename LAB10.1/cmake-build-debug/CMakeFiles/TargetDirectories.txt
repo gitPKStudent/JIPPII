@@ -1,0 +1,3 @@
+C:/Users/mik15/OneDrive/Pulpit/JIPP_II/JIPPII/LAB10.1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/mik15/OneDrive/Pulpit/JIPP_II/JIPPII/LAB10.1/cmake-build-debug/CMakeFiles/LAB10_1.dir
+C:/Users/mik15/OneDrive/Pulpit/JIPP_II/JIPPII/LAB10.1/cmake-build-debug/CMakeFiles/edit_cache.dir
